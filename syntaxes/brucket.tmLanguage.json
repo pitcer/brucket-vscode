@@ -1,0 +1,136 @@
+{
+    "name": "Brucket",
+    "scopeName": "source.brucket",
+    "filetypes": [
+        "bk"
+    ],
+    "patterns": [
+        {
+            "include": "#keyword"
+        },
+        {
+            "include": "#constant"
+        },
+        {
+            "include": "#function"
+        },
+        {
+            "include": "#module"
+        },
+        {
+            "include": "#static"
+        },
+        {
+            "include": "#variable"
+        },
+        {
+            "include": "#parameter"
+        },
+        {
+            "include": "#string"
+        },
+        {
+            "include": "#number"
+        },
+        {
+            "include": "#comment"
+        }
+    ],
+    "repository": {
+        "keyword": {
+            "patterns": [
+                {
+                    "name": "keyword.other",
+                    "match": "\\b(true|false|null|let|if|lambda|internal|module|function|fun|constant|const|public|pub|private|lazy|static|boo|int|str|any)\\b"
+                }
+            ]
+        },
+        "constant": {
+            "patterns": [
+                {
+                    "name": "variable.other.constant",
+                    "match": "(?<=(constant|const)\\s)[A-Za-z_]+"
+                }
+            ]
+        },
+        "function": {
+            "patterns": [
+                {
+                    "name": "entity.name.function.definition",
+                    "match": "(?<=(function|fun)\\s)[A-Za-z_]+"
+                }
+            ]
+        },
+        "module": {
+            "patterns": [
+                {
+                    "name": "storage.type",
+                    "match": "(?<=(module)\\s)[A-Za-z_]+"
+                },
+                {
+                    "name": "storage.type",
+                    "match": "[A-Za-z_]+(?=\\:\\:)"
+                }
+            ]
+        },
+        "static": {
+            "patterns": [
+                {
+                    "name": "meta.method-call.static entity.name.function",
+                    "match": "(?<=\\()[A-Za-z_]+"
+                },
+                {
+                    "name": "meta.method-call.static entity.name.function",
+                    "match": "(?<=\\:\\:)[A-Za-z_]+"
+                }
+            ]
+        },
+        "variable": {
+            "patterns": [
+                {
+                    "name": "variable.other.local",
+                    "match": "[A-Za-z_]+"
+                }
+            ]
+        },
+        "parameter": {
+            "begin": "\\[",
+            "end": "\\]",
+            "patterns": [
+                {
+                    "include": "#keyword"
+                },
+                {
+                    "name": "variable.parameter",
+                    "match": "[A-Za-z_]+"
+                }
+            ]
+        },
+        "string": {
+            "patterns": [
+                {
+                    "name": "string",
+                    "begin": "\"",
+                    "end": "\""
+                }
+            ]
+        },
+        "number": {
+            "patterns": [
+                {
+                    "name": "constant.numeric",
+                    "match": "[0-9]+"
+                }
+            ]
+        },
+        "comment": {
+            "patterns": [
+                {
+                    "name": "comment",
+                    "begin": "\\#",
+                    "end": "\\\n"
+                }
+            ]
+        }
+    }
+}

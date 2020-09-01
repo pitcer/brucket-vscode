@@ -1,0 +1,42 @@
+{
+  "name": "brucket",
+  "displayName": "Brucket",
+  "description": "Brucket language support",
+  "version": "0.0.1",
+  "publisher": "pitcer",
+  "engines": {
+    "vscode": "^1.47.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "brucket",
+        "extensions": [
+          ".bk"
+        ],
+        "aliases": [
+          "Brucket",
+          "bk"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+			{
+				"language": "brucket",
+				"scopeName": "source.brucket",
+				"path": "./syntaxes/brucket.tmLanguage.json"
+			}
+		],
+    "snippets": [
+			{
+				"language": "brucket",
+				"path": "./snippets/brucket.json"
+			}
+		]
+  }
+}
+
